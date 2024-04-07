@@ -1,28 +1,28 @@
-import React, {useState, handleChange} from 'react';
-import './Currency.css';
+import React, { useContext } from 'react';
+import { AppContext } from '../context/AppContext';
+import './Currency.css'
 
 const Currency = () => {
- const [value, setValue] = useState("$ Dollar");
- const handleChange = (event) => {
+  const {dispatch } = useContext(AppContext);
 
-   setValue(event.target.value);
+	const changeCurrency = (val)=>{
+			dispatch({
+				type: 'CHG_CURRENCY',
+				payload: val,
+			})
+	}
 
- };
-
- return (
-
-   <div className='currDiv'>
-     <label>Currency {value}</label>
-       <select className='currSel' value={value} onChange={handleChange}>
-         <option value="$ Dollar">$ Dollar</option>
-         <option value="£ Pound">£ Pound</option>
-         <option value="€ Euro">€ Euro</option>
-         <option value="₹ Ruppee">₹ Ruppee</option>
-       </select>
-   </div>
-
- );
-
-};
-
+    return (
+      <div className='currDiv'>
+          <label>Currency</label>
+            <select name='hover_color'id="currency" onChange={(event)=>changeCurrency(event.target.value)} style={{ marginLeft: '1rem' , backgroundColor:'#93e499'}}>
+                <option value="£">£ Pound</option>
+                <option value="$">$ Dollar</option>
+                <option value="€">€ Euro</option>
+                <option value="₹">₹ Rupee</option>
+            </select>	          
+      </div>
+    );
+  };
+  
 export default Currency;
