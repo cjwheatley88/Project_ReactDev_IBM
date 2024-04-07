@@ -1,0 +1,10 @@
+.currDiv {
+    background-color: lightcyan;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 20px;
+    position: relative;
+    .currSel {
+        background-color: lightcyan;
+    }
+};

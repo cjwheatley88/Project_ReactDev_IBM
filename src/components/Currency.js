@@ -1,7 +1,8 @@
 import React, {useState, handleChange} from 'react';
+import './Currency.css';
 
 const Currency = () => {
- const [value, setValue] = useState(1);
+ const [value, setValue] = useState("$ Dollar");
  const handleChange = (event) => {
 
    setValue(event.target.value);
@@ -10,16 +11,14 @@ const Currency = () => {
 
  return (
 
-   <div>
-     <label>
-       Currency
-       <select value={value} onChange={handleChange}>
-         <option value="1">$ Dollar</option>
-         <option value="2">£ Pound</option>
-         <option value="3">€ Euro</option>
-         <option value="4">₹ Ruppee</option>
+   <div className='currDiv'>
+     <label>Currency {value}</label>
+       <select className='currSel' value={value} onChange={handleChange}>
+         <option value="$ Dollar">$ Dollar</option>
+         <option value="£ Pound">£ Pound</option>
+         <option value="€ Euro">€ Euro</option>
+         <option value="₹ Ruppee">₹ Ruppee</option>
        </select>
-     </label>
    </div>
 
  );
